@@ -1,0 +1,17 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+   win_build:
+     runs-on: windows-latest
+     name: windows build
+     steps:           
+       - name: Install Python
+         uses: actions/setup-python@v5
+         with:
+           python-version: '3.11'
+       
+       - name: Check Vars
+         run: |
+           echo %path%
+           echo %python%
