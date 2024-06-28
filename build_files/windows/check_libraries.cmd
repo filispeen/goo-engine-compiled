@@ -13,7 +13,7 @@ if NOT EXIST %BUILD_VS_LIBDIR% (
 		echo.
 		echo The required external libraries in %BUILD_VS_LIBDIR% are missing
 		echo.
-		set /p GetLibs= "Would you like to download them? (y/n)"
+		set GetLibs=Y
 		if /I "!GetLibs!"=="Y" (
 			echo.
 			echo Downloading %BUILD_VS_SVNDIR% libraries, please wait.
