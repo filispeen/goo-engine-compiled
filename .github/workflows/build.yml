@@ -20,11 +20,6 @@ jobs:
            choco install cmake -y
            cmake --version
 
-       - name: Install 7Zip
-         run: |
-           choco install 7zip.install -y
-           7z
-
        - name: Install Visual Studio Build Tools
          run: |
            choco install visualstudio2019buildtools -y
