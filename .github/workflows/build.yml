@@ -50,7 +50,7 @@ jobs:
 
        - name: Build Blender
          run: |
-           .\goo-engine-compiled\make.bat 
+           .\goo-engine-compiled\make.bat ninja
            for /d %i in (build_*) do ren %i build & goto break
 
        - name: Archive Compiled Blender
