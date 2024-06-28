@@ -40,10 +40,15 @@ jobs:
            refreshenv
            
        - name: Install Python
-         uses: actions/setup-python@v3
+         uses: actions/setup-python@v5
          with:
-           python-version: 3.x
+           python-version: '3.11'
        
+       - name: Check Vars
+         run: |
+           echo %path%
+           echo %python%
+         
        - name: Donwload Blender dependencies
          run: |
            .\goo-engine-compiled\make.bat update
