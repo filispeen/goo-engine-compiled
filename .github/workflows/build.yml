@@ -1,0 +1,58 @@
+on:
+  workflow_dispatch:
+  
+jobs:
+   win_build:
+     runs-on: windows-latest
+     name: windows build
+     steps:
+       - name: Checkout Repository
+         run: |
+           git clone https://github.com/filispeen/goo-engine-compiled --depth 1
+
+       - name: Install Git for Windows
+         run: |
+           choco install git -y
+           git --version
+           
+       - name: Install CMake
+         run: |
+           choco install cmake -y
+           cmake --version
+
+       - name: Install 7Zip
+         run: |
+           choco install 7zip.install -y
+           7z
+
+       - name: Install Visual Studio Build Tools
+         run: |
+           choco install visualstudio2019buildtools -y
+           refreshenv
+           vswhere -latest -products '*' -requires Microsoft.Component.MSBuild -property installationPath
+
+       - name: Install TurtoiseSVN
+         run: |
+           curl -L https://kumisystems.dl.sourceforge.net/project/tortoisesvn/1.14.6/Application/TortoiseSVN-1.14.6.29673-x64-svn-1.14.3.msi?viasf=1 -o svn.msi
+           msiexec /i svn.msi /quiet
+           refreshenv
+           
+       - name: Install Python
+         uses: actions/setup-python@v3
+         with:
+           python-version: 3.x
+       
+       - name: Donwload Blender dependencies
+         run: |
+           .\goo-engine-compiled\make.bat update
+
+       - name: Build Blender
+         run: |
+           .\goo-engine-compiled\make.bat 
+           for /d %i in (build_*) do ren %i build & goto break
+
+       - name: Archive Compiled Blender
+         uses: actions/upload-artifact@v3
+         with:
+           name: blender-windows-build
+           path: build/bin/Release
