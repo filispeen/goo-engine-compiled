@@ -8,22 +8,22 @@ REM the 311, 312 and finally 39 folders to see if those are there, it checks
 REM this far ahead to ensure good lib folder compatibility in the future
 REM it falls back to 3.9 just incase it is a very old lib folder.
 echo %BLENDER_DIR%
-set PYTHON=%BLENDER_DIR%\..\lib\win64_vc15\python\310\bin\python.exe
+set PYTHON=%BLENDER_DIR%..\lib\win64_vc15\python\310\bin\python.exe
 echo Checking for python in %PYTHON%
 if EXIST %PYTHON% (
 	goto detect_python_done
 )
-set PYTHON=%BLENDER_DIR%\..\lib\win64_vc15\python\311\bin\python.exe
+set PYTHON=%BLENDER_DIR%..\lib\win64_vc15\python\311\bin\python.exe
 echo Checking for python in %PYTHON%
 if EXIST %PYTHON% (
 	goto detect_python_done
 )
-set PYTHON=%BLENDER_DIR%\..\lib\win64_vc15\python\312\bin\python.exe
+set PYTHON=%BLENDER_DIR%..\lib\win64_vc15\python\312\bin\python.exe
 echo Checking for python in %PYTHON%
 if EXIST %PYTHON% (
 	goto detect_python_done
 )
-set PYTHON=%BLENDER_DIR%\..\lib\win64_vc15\python\39\bin\python.exe
+set PYTHON=%BLENDER_DIR%..\lib\win64_vc15\python\39\bin\python.exe
 echo Checking for python in %PYTHON%
 if EXIST %PYTHON% (
 	goto detect_python_done
