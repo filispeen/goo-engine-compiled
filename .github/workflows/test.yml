@@ -13,6 +13,6 @@ jobs:
        
        - name: Check Vars
          run: |
-           echo %path%
-           echo %python%
-           dir C:\hostedtoolcache\windows\Python\3.11.9\x64
+            dir
+            git clone https://github.com/filispeen/goo-engine-compiled --depth 1
+            dir
