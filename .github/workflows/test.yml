@@ -16,3 +16,5 @@ jobs:
             dir
             git clone https://github.com/filispeen/goo-engine-compiled --depth 1
             dir
+            dir \..\
+            dir \..\..\
