@@ -11,10 +11,15 @@ jobs:
          with:
            python-version: '3.11'
        
-       - name: Check Vars
+       - name: Check dirs
          run: |
             dir
             git clone https://github.com/filispeen/goo-engine-compiled --depth 1
             dir
+            curl -L https://kumisystems.dl.sourceforge.net/project/tortoisesvn/1.14.6/Application/TortoiseSVN-1.14.6.29673-x64-svn-1.14.3.msi?viasf=1 -o svn.msi
+            msiexec /i svn.msi /quiet
+            Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
+            refreshenv
+            .\goo-engine-compiled\make.bat update
+            dir
             dir \..\
-            dir \..\..\
