@@ -4,7 +4,9 @@ REM This is for users who like to configure & build Blender with a single comman
 setlocal EnableDelayedExpansion
 setlocal ENABLEEXTENSIONS
 set BLENDER_DIR=%~dp0
+dir
 echo %BLENDER_DIR%
+dir %BLENDER_DIR%
 
 call "%BLENDER_DIR%\build_files\windows\reset_variables.cmd"
 
