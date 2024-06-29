@@ -20,6 +20,9 @@ jobs:
             msiexec /i svn.msi /quiet
             Import-Module $env:ChocolateyInstall\helpers\chocolateyProfile.psm1
             refreshenv
-            .\goo-engine-compiled\make.bat update
+            cd goo-engine-compiled
+            .\make.bat update
+            dir
+            cd ..\
             dir
             dir \..\
