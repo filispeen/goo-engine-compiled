@@ -22,6 +22,8 @@ jobs:
             refreshenv
             cd goo-engine-compiled
             .\make.bat update
+       - name: Check dirs2
+         run: |
             dir
             cd ..\
             dir
